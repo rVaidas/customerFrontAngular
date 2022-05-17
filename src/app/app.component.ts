@@ -8,10 +8,19 @@ import { CustomerService } from './services/customer.service';
 })
 export class AppComponent {
   title = 'customerFrontAngular';
+  http: any; //------------------------------------------------
+  values: any; //----------------------------------------------
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((responce) => {
       console.log(responce);
+    });
+  }
+
+  getCustFromBack() {
+    this.http.get('http://localhost:8080/').subscribe((data: any) => {
+      console.log(data);
+      this.values = data;
     });
   }
 
