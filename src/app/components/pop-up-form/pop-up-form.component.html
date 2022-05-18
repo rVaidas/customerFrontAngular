@@ -1,0 +1,70 @@
+<p-dialog
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '50vw' }"
+>
+  <div class="col-md-6">
+    <h2 class="text-center">Add User</h2>
+    <form>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input
+          customer.name
+          placeholder="First Name"
+          name="firstName"
+          class="form-control"
+          id="firstName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Surname:</label>
+        <input
+          customer.surname
+          placeholder="Surname"
+          name="surname"
+          class="form-control"
+          id="surname"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">Birth Date:</label>
+        <input
+          customer.birthDate
+          placeholder="Birth date"
+          name="birthDate"
+          class="form-control"
+          id="birthDate"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telNumber">Tel number:</label>
+        <input
+          customer.surname
+          placeholder="Tel number"
+          name="telNumbere"
+          class="form-control"
+          id="telNumbere"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input
+          type="email"
+          customer.email
+          placeholder="Email"
+          name="email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+
+      <button class="btn btn-success" (click)="addCustomer()">
+        Add New Customer
+      </button>
+    </form>
+  </div>
+</p-dialog>

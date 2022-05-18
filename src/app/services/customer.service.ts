@@ -12,4 +12,8 @@ export class CustomerService {
   getCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>('/api/v1/customer');
   }
+
+  addCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>('/api/v1/customer', customer);
+  }
 }

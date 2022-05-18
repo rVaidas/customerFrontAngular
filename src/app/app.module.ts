@@ -6,10 +6,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TableModule } from 'primeng/table';
+import { PopUpFormComponent } from './components/pop-up-form/pop-up-form.component';
+
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, TableModule],
+  declarations: [AppComponent, PopUpFormComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    TableModule,
+    DialogModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Customer } from './interface/server';
 import { CustomerService } from './services/customer.service';
 
 @Component({
@@ -6,23 +7,20 @@ import { CustomerService } from './services/customer.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'customerFrontAngular';
-  http: any; //------------------------------------------------
-  values: any; //----------------------------------------------
+  customers: Customer[] = [];
+
+  constructor(private customerService: CustomerService) {}
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((responce) => {
       console.log(responce);
+      this.customers = responce;
     });
   }
 
-  getCustFromBack() {
-    this.http.get('http://localhost:8080/').subscribe((data: any) => {
-      console.log(data);
-      this.values = data;
-    });
-  }
-
-  constructor(private customerService: CustomerService) {}
+  /* addCustomer(customer: Customer): void {
+    this.customerService.addCustomer(customer);
+  }*/
 }
