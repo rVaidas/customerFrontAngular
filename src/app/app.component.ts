@@ -10,6 +10,7 @@ import { CustomerService } from './services/customer.service';
 export class AppComponent implements OnInit {
   title = 'customerFrontAngular';
   customers: Customer[] = [];
+  display!: boolean;
 
   constructor(private customerService: CustomerService) {}
 
@@ -18,6 +19,10 @@ export class AppComponent implements OnInit {
       console.log(responce);
       this.customers = responce;
     });
+  }
+
+  showDialog() {
+    this.display = true;
   }
 
   /* addCustomer(customer: Customer): void {

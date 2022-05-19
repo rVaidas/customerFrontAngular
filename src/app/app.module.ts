@@ -10,6 +10,12 @@ import { PopUpFormComponent } from './components/pop-up-form/pop-up-form.compone
 
 import { DialogModule } from 'primeng/dialog';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { FormControl, FormGroup } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent, PopUpFormComponent],
   imports: [
@@ -18,6 +24,9 @@ import { DialogModule } from 'primeng/dialog';
     HttpClientModule,
     TableModule,
     DialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

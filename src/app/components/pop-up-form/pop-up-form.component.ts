@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Customer } from 'src/app/interface/server';
 import { CustomerService } from 'src/app/services/customer.service';
 
@@ -10,21 +11,53 @@ import { CustomerService } from 'src/app/services/customer.service';
 
 /*export class PopUpFormComponent implements OnInit {
   customer: Customer = new Customer();*/
+
+// export class PopUpFormComponent implements OnInit {
+//   customer!: Customer;
+//   display: boolean = false;
 export class PopUpFormComponent implements OnInit {
-  customer!: Customer;
+  customerForm!: FormGroup;
+  @Input()
   display: boolean = false;
+  customers: Customer[] | undefined;
 
   constructor(private customerService: CustomerService) {}
-  // ngOnInit(): void {}
-  ngOnInit(): void {}
 
-  addCustomer(): void {
-    this.customerService.addCustomer(this.customer).subscribe((responce) => {
-      alert(responce);
+  ngOnInit(): void {
+    this.customerForm = new FormGroup({
+      name: new FormControl(),
+      surname: new FormControl(),
+      birthDate: new FormControl(),
+      telNumber: new FormControl(),
+      email: new FormControl(),
     });
   }
 
-  showDialog() {
-    this.display = true;
+  // addCustomer(): void {
+  //   this.customerService.addCustomer(this.customer).subscribe((responce) => {
+  //     alert(responce);
+  //   });
+  // }
+
+  refreshCustomers() {
+    this.customerService.getCustomers().subscribe((responce) => {
+      console.log(responce);
+      this.customers = responce;
+    });
   }
+
+  onSubmit(): void {
+    this.refreshCustomers();
+    this.customerService
+      .addCustomer(this.customerForm.value)
+      .subscribe((responce) => {
+        // console.log(responce);
+        alert(responce.name + ' ' + responce.surname);
+        this.display = false;
+      });
+  }
+
+  // showDialog() {
+  //   this.display = true;
+  // }
 }

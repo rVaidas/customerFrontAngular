@@ -1,16 +1,29 @@
 <h2>Customers</h2>
 
 <p-table
+  #dt1
   [value]="customers"
   styleClass="p-datatable-gridlines"
   responsiveLayout="scroll"
+  [globalFilterFields]="['name', 'surname', 'telNumber', 'email']"
 >
   <ng-template pTemplate="caption">
-    <button onclick="">Add New Customer</button>
-    <span class="p-input-icon-left">
-      <i class="pi pi-search"></i>
-      <input type="text" pInputText placeholder="Search" position="right" />
-    </span>
+    <div style="display: flex; justify-content: space-between">
+      <button (click)="showDialog()">Add New Customer</button>
+      <span class="p-input-icon-left">
+        <!-- <i class="pi pi-search"></i> padidinimo stiklas -->
+
+        <input
+          #inputTemp
+          pInputText
+          type="text"
+          pInputText
+          placeholder="Search keyword"
+          position="right"
+          (input)="dt1.filterGlobal(inputTemp.value, 'contains')"
+        />
+      </span>
+    </div>
   </ng-template>
   <ng-template pTemplate="header">
     <tr></tr>
@@ -37,4 +50,4 @@
   <ng-template pTemplate="summary"> Footer </ng-template>
 </p-table>
 
-<!-- <app-pop-up-form> </app-pop-up-form> -->
+<app-pop-up-form [display]="this.display"> </app-pop-up-form>
