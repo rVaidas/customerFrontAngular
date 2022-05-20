@@ -1,3 +1,5 @@
+#CustomerAPI front.
+
 Project was generated with Angular CLI.
 Project contains: 
   -main table component to store data from backend.
