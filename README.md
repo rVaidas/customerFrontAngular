@@ -1,4 +1,4 @@
-#CustomerAPI front.
+# CustomerAPI front
 
 Project was generated with Angular CLI.
 Project contains: 
