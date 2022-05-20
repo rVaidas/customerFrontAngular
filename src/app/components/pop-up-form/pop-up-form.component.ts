@@ -52,7 +52,13 @@ export class PopUpFormComponent implements OnInit {
       .addCustomer(this.customerForm.value)
       .subscribe((responce) => {
         // console.log(responce);
-        alert(responce.name + ' ' + responce.surname);
+        alert(
+          'Customer ' +
+            responce.name +
+            ' ' +
+            responce.surname +
+            ' added successfully'
+        );
         this.display = false;
       });
   }

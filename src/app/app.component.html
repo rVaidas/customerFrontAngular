@@ -12,7 +12,6 @@
       <button (click)="showDialog()">Add New Customer</button>
       <span class="p-input-icon-left">
         <!-- <i class="pi pi-search"></i> padidinimo stiklas -->
-
         <input
           #inputTemp
           pInputText
@@ -35,7 +34,6 @@
       <th>Telephone Number</th>
       <th>E-mail</th>
     </tr>
-    <!-- *ngFor="let customer of customers" -->
   </ng-template>
   <ng-template pTemplate="body" let-customer>
     <tr>
@@ -47,7 +45,7 @@
       <td>{{ customer.email }}</td>
     </tr>
   </ng-template>
-  <ng-template pTemplate="summary"> Footer </ng-template>
+  <ng-template pTemplate="summary"> </ng-template>
 </p-table>
 
 <app-pop-up-form [display]="this.display"> </app-pop-up-form>
